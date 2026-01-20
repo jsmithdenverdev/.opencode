@@ -1,2 +1,3 @@
 # .opencode
+
 OpenCode configuration
