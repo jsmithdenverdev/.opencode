@@ -140,3 +140,6 @@ vite.config.ts.timestamp-*
 
 # Agents File - Avoid Polluting Global Context window
 AGENTS.md
+
+
+.schema-cache/
