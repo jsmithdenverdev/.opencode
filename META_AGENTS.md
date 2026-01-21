@@ -8,7 +8,7 @@ This repository contains a collection of OpenCode configuration files, including
 .
 ├── agent/           # Agent definitions (markdown files)
 ├── skills/          # Skill definitions (SKILL.md inside named directories)
-├── opencode.jsonc   # Main OpenCode configuration
+├── opencode.json    # Main OpenCode configuration
 ├── META_AGENTS.md   # Meta documentation about building this config collection
 └── README.md        # Project readme
 ```
@@ -19,7 +19,7 @@ This is a configuration repository with no build process. Changes are validated 
 
 ```bash
 # Validate JSON configuration
-cat opencode.jsonc  # Should be valid JSONC
+cat opencode.json  # Should be valid JSON
 
 # Check file structure
 ls -la agent/ skills/
@@ -27,7 +27,7 @@ ls -la agent/ skills/
 # Verify agent frontmatter is valid
 grep -A 5 "^---" agent/*.md
 
-# Verify skill frontmatter is valid  
+# Verify skill frontmatter is valid
 find skills -name "SKILL.md" -exec grep -A 5 "^---" {} +
 ```
 
@@ -45,8 +45,8 @@ find skills -name "SKILL.md" -exec grep -A 5 "^---" {} +
   - Use kebab-case for directory names: `git-release/`, `typescript-expert/`
   - Each skill must have `SKILL.md` (all caps) with YAML frontmatter
 
-- **Configuration**: Main config in `opencode.jsonc`
-  - Use JSONC format (JSON with comments)
+- **Configuration**: Main config in `opencode.json`
+  - Use JSON format
   - Follow existing structure with plugins, instructions, permissions, and MCP servers
 
 ### Naming Conventions
@@ -87,6 +87,7 @@ permission:
 ---
 
 You are in code review mode. Focus on:
+
 - Code quality and best practices
 - Potential bugs and edge cases
 - Performance implications
@@ -96,10 +97,12 @@ Provide constructive feedback without making direct changes.
 ```
 
 **Required frontmatter fields for agents**:
+
 - `description`: Brief description of what the agent does (required for subagents)
 - `mode`: Either `primary`, `subagent`, or `all` (defaults to `all` if not specified)
 
 **Optional frontmatter fields**:
+
 - `model`: Override model for this agent
 - `temperature`: Control response randomness (0.0-1.0)
 - `tools`: Enable/disable specific tools
@@ -124,27 +127,31 @@ metadata:
 ---
 
 ## What I do
+
 - Draft release notes from merged PRs
 - Propose a version bump
 - Provide a copy-pasteable `gh release create` command
 
 ## When to use me
+
 Use this when you are preparing a tagged release.
 Ask clarifying questions if the target versioning scheme is unclear.
 ```
 
 **Required frontmatter fields for skills**:
+
 - `name`: Skill identifier (must match directory name, 1-64 chars, lowercase with hyphens)
 - `description`: Brief description (1-1024 chars)
 
 **Optional frontmatter fields**:
+
 - `license`: License identifier (e.g., MIT, Apache-2.0)
 - `compatibility`: Compatibility info (e.g., opencode)
 - `metadata`: String-to-string map for additional context
 
 ### Configuration Style
 
-When editing `opencode.jsonc`:
+When editing `opencode.json`:
 
 1. **Indentation**: 2 spaces (no tabs)
 2. **Quotes**: Use double quotes for strings
@@ -158,44 +165,40 @@ When editing `opencode.jsonc`:
 
 Example with agent configuration:
 
-```jsonc
+```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "@tarquinen/opencode-dcp@latest"
-  ],
-  "instructions": [
-    "CLAUDE.md"
-  ],
+  "plugin": ["@tarquinen/opencode-dcp@latest"],
+  "instructions": ["CLAUDE.md"],
   "agent": {
     "build": {
       "mode": "primary",
       "model": "anthropic/claude-sonnet-4-20250514",
       "permission": {
         "bash": {
-          "git push": "ask"
-        }
-      }
+          "git push": "ask",
+        },
+      },
     },
     "code-reviewer": {
       "description": "Reviews code for best practices",
       "mode": "subagent",
       "tools": {
         "write": false,
-        "edit": false
-      }
-    }
+        "edit": false,
+      },
+    },
   },
   "permission": {
     "bash": {
       "git *": "allow",
-      "git push *": "deny"
+      "git push *": "deny",
     },
     "skill": {
       "*": "allow",
-      "internal-*": "deny"
-    }
-  }
+      "internal-*": "deny",
+    },
+  },
 }
 ```
 
@@ -240,7 +243,7 @@ refactor: restructure git-release skill to use SKILL.md format
 3. Add YAML frontmatter with `name` and `description`
 4. Ensure `name` matches directory name exactly
 5. Write skill content explaining what it does and when to use it
-6. Configure skill permissions in `opencode.jsonc` if needed
+6. Configure skill permissions in `opencode.json` if needed
 
 ## Special Notes
 
@@ -255,3 +258,4 @@ refactor: restructure git-release skill to use SKILL.md format
 - This repository serves as dotfiles that can be:
   - Installed globally at `~/.config/opencode`
   - Cloned as a submodule for project-specific config
+- Use context7 to search for updated documentation

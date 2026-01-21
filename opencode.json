@@ -1,6 +1,38 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": ["@tarquinen/opencode-dcp@latest", "opencode-anthropic-auth"],
+  "agent": {
+    "typescript-expert": {
+      "model": "opencode/claude-sonnet-4"
+    },
+    "react-expert": {
+      "model": "opencode/claude-sonnet-4"
+    },
+    "svelte-expert": {
+      "model": "opencode/claude-sonnet-4"
+    },
+    "vue-expert": {
+      "model": "opencode/claude-sonnet-4"
+    },
+    "frontend-developer": {
+      "model": "opencode/claude-sonnet-4"
+    },
+    "backend-developer": {
+      "model": "opencode/claude-sonnet-4"
+    },
+    "ux-engineer": {
+      "model": "opencode/claude-sonnet-4"
+    },
+    "ux-expert": {
+      "model": "opencode/claude-sonnet-4"
+    },
+    "accessibility-expert": {
+      "model": "opencode/claude-sonnet-4"
+    },
+    "solution-architect": {
+      "model": "opencode/claude-sonnet-4"
+    }
+  },
   "permission": {
     "bash": {
       "git *": "allow",
