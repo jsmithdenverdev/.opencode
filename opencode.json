@@ -3,34 +3,34 @@
   "plugin": ["@tarquinen/opencode-dcp@latest", "opencode-anthropic-auth"],
   "agent": {
     "typescript-expert": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     },
     "react-expert": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     },
     "svelte-expert": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     },
     "vue-expert": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     },
     "frontend-developer": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     },
     "backend-developer": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     },
     "ux-engineer": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     },
     "ux-expert": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     },
     "accessibility-expert": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     },
     "solution-architect": {
-      "model": "opencode/claude-sonnet-4"
+      "model": "opencode/glm-4.7-free"
     }
   },
   "permission": {

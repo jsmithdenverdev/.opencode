@@ -167,7 +167,7 @@ Implement directly when:
 ## Subagent Configuration
 
 All subagents you invoke will use:
-- **Model**: `opencode/claude-sonnet-4` (configured globally)
+- **Model**: `opencode/glm-4.7-free` (configured globally)
 - This provides cost-effective specialized task execution
 
 ## Best Practices
