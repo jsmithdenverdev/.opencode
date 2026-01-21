@@ -8,7 +8,7 @@ This repository contains a collection of OpenCode configuration files, including
 .
 ├── agent/           # Agent definitions (markdown files)
 ├── skills/          # Skill definitions (SKILL.md inside named directories)
-├── opencode.jsonc   # Main OpenCode configuration
+├── opencode.json    # Main OpenCode configuration
 ├── META_AGENTS.md   # Meta documentation about building this config collection
 └── README.md        # Project readme
 ```
@@ -19,7 +19,7 @@ This is a configuration repository with no build process. Changes are validated 
 
 ```bash
 # Validate JSON configuration
-cat opencode.jsonc  # Should be valid JSONC
+cat opencode.json  # Should be valid JSON
 
 # Check file structure
 ls -la agent/ skills/
@@ -45,8 +45,8 @@ find skills -name "SKILL.md" -exec grep -A 5 "^---" {} +
   - Use kebab-case for directory names: `git-release/`, `typescript-expert/`
   - Each skill must have `SKILL.md` (all caps) with YAML frontmatter
 
-- **Configuration**: Main config in `opencode.jsonc`
-  - Use JSONC format (JSON with comments)
+- **Configuration**: Main config in `opencode.json`
+  - Use JSON format
   - Follow existing structure with plugins, instructions, permissions, and MCP servers
 
 ### Naming Conventions
@@ -151,7 +151,7 @@ Ask clarifying questions if the target versioning scheme is unclear.
 
 ### Configuration Style
 
-When editing `opencode.jsonc`:
+When editing `opencode.json`:
 
 1. **Indentation**: 2 spaces (no tabs)
 2. **Quotes**: Use double quotes for strings
@@ -165,7 +165,7 @@ When editing `opencode.jsonc`:
 
 Example with agent configuration:
 
-```jsonc
+```json
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": ["@tarquinen/opencode-dcp@latest"],
@@ -243,7 +243,7 @@ refactor: restructure git-release skill to use SKILL.md format
 3. Add YAML frontmatter with `name` and `description`
 4. Ensure `name` matches directory name exactly
 5. Write skill content explaining what it does and when to use it
-6. Configure skill permissions in `opencode.jsonc` if needed
+6. Configure skill permissions in `opencode.json` if needed
 
 ## Special Notes
 
