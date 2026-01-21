@@ -1,7 +1,7 @@
 ---
 description: Strategic planning and architecture design agent with full contextual awareness
 mode: primary
-model: opencode/claude-sonnet-4.5
+model: opencode/claude-sonnet-4-5
 temperature: 0.3
 tools:
   write: false

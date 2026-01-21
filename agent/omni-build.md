@@ -1,7 +1,7 @@
 ---
 description: Implementation orchestrator that delegates to specialized subagents
 mode: primary
-model: opencode/claude-sonnet-4.5
+model: opencode/claude-sonnet-4-5
 temperature: 0.2
 permission:
   bash:
