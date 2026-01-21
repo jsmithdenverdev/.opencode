@@ -7,6 +7,42 @@
   "instructions": [
     "CLAUDE.md"
   ],
+  "agent": {
+    "plan": {
+      "mode": "primary",
+      "description": "Product owner focused on requirements, documentation, and backlog management",
+      "temperature": 0.3,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": false
+      },
+      "permission": {
+        "edit": {
+          "docs/**": "allow",
+          "*.md": "allow",
+          "backlog/**": "allow",
+          ".adr/**": "allow",
+          "*": "deny"
+        },
+        "write": {
+          "docs/**": "allow",
+          "*.md": "allow",
+          "backlog/**": "allow",
+          ".adr/**": "allow",
+          "*": "deny"
+        },
+        "bash": {
+          "*": "deny"
+        }
+      }
+    },
+    "build": {
+      "mode": "primary",
+      "description": "Technical lead orchestrating implementation with access to all development sub-agents",
+      "temperature": 0.2
+    }
+  },
   "permission": {
     "bash": {
       "git *": "allow",
