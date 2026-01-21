@@ -1,7 +1,7 @@
 ---
 description: Implementation orchestrator that delegates to specialized subagents
 mode: primary
-model: opencode/claude-sonnet-4-5
+model: opencode/glm-4.7-free
 temperature: 0.2
 permission:
   bash:
@@ -167,7 +167,7 @@ Implement directly when:
 ## Subagent Configuration
 
 All subagents you invoke will use:
-- **Model**: `opencode/claude-sonnet-4` (configured globally)
+- **Model**: `opencode/glm-4.7-free` (configured globally)
 - This provides cost-effective specialized task execution
 
 ## Best Practices
