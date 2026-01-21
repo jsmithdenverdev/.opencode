@@ -20,6 +20,14 @@ jobs:
         with:
           node-version: '20'
       
+      - name: Cache schema
+        uses: actions/cache@v4
+        with:
+          path: .schema-cache
+          key: schema-cache-${{ hashFiles('opencode.json') }}
+          restore-keys: |
+            schema-cache-
+      
       - name: Lint configuration
         run: ./scripts/lint.sh
   
